@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Красивая машина</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="landscape">
+        <div class="road">
+            <div class="car">
+                <div class="window"></div>
+                <div class="headlight left"></div>
+                <div class="headlight right"></div>
+                <div class="tail-light left"></div>
+                <div class="tail-light right"></div>
+                <div class="side-mirror left"></div>
+                <div class="side-mirror right"></div>
+                <div class="spoiler"></div>
+                <div class="antenna"></div> <!-- Антенна на крыше -->
+                <div class="door"></div> <!-- Левая дверь -->
+                <div class="door right"></div> <!-- Правая дверь -->
+                <div class="wheel left"></div> <!-- Левое колесо -->
+                <div class="wheel right"></div> <!-- Правое колесо -->
+            </div>
+        </div>
+    </div>
+    <style>
+      * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("https://img.lovepik.com/element/40040/1552.png");
+    background-size: cover;
+}
+
+.landscape {
+    position: relative;
+    height: 300px; /* Высота пейзажа */
+    width: 100%; /* Ширина пейзажа */
+}
+
+
+.car {
+    position: relative;
+    width: 300px; /* Ширина машинки */
+    height: 165px;
+    background: linear-gradient(135deg, #0051ff, #0581f5); /* Яркий градиент для кузова */
+    border-radius: 30px 30px 0 0; /* Более округлые верхние углы */
+    animation: drive 2s linear infinite; /* Анимация движения */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Более выраженная тень */
+    margin-top: 20px; /* Опускаем машинку вниз */
+    overflow: hidden; /* Скрываем лишние элементы */
+    margin-top: 600px;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.wheel {
+    position: absolute;
+    width: 70px; /* Ширина колеса */
+    height: 70px; /* Высота колеса */
+    background-color: #222; /* Цвет шины */
+    border-radius: 50%; /* Закругление для колеса */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень для шины */
+    animation: rotate 1s linear infinite; /* Анимация вращения */
+}
+
+.wheel::before {
+    content: '';
+    position: absolute;
+    width: 50px; /* Ширина диска */
+    height: 50px; /* Высота диска */
+    background: radial-gradient(circle, #fff 0%, #888 100%); /* Градиент для диска */
+    border-radius: 50%; /* Закругление для диска */
+    top: 10px; /* Положение диска относительно шины */
+    left: 10px; /* Центрируем диск */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Тень для диска */
+}
+
+.wheel::after {
+    content: '';
+    position: absolute;
+    width: 6px; /* Ширина болта */
+    height: 6px; /* Высота болта */
+    background-color: #555; /* Цвет болта */
+    border-radius: 50%; /* Закругление для болта */
+    top: 20px; /* Положение болта */
+    left: 20px; /* Положение болта */
+}
+
+.wheel.left {
+    left: 20px; /* Положение левого колеса */
+    bottom: 0; /* Положение колеса */
+}
+
+.wheel.right {
+    right: 20px; /* Положение правого колеса */
+    bottom: 0; /* Положение колеса */
+}
+
+/* Добавление текстуры для шины */
+.wheel::before {
+    background: radial-gradient(circle, #fff 0%, #666 100%);
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.window {
+    position: absolute;
+    width: 180px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.8); /* Цвет окна */
+    border-radius: 5px; /* Закругленные углы */
+    top: 10px; /* Положение окна на машинке */
+    left: 60px; /* Положение окна на машинке */
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3); /* Внутренняя тень для окна */
+}
+
+.side-mirror {
+    position: absolute;
+    width: 15px; /* Увеличиваем размер зеркал */
+    height: 25px;
+    background-color: #555; /* Цвет зеркала */
+    border-radius: 5px; /* Закругленные углы для зеркала */
+}
+
+.side-mirror.left {
+    left: -10px; /* Положение левого зеркала */
+    top: 30px; /* Положение зеркала */
+}
+
+.side-mirror.right {
+    right: -10px; /* Положение правого зеркала */
+    top: 30px; /* Положение зеркала */
+}
+
+.headlight {
+    position: absolute;
+    width: 40px; /* Увеличиваем размер фар */
+    height: 40px;
+    background-color: rgba(255, 255, 0, 0.8); /* Полупрозрачный цвет фар */
+    border-radius: 50%;
+    top: 25px; /* Положение фар */
+    box-shadow: 0 0 15px rgba(255, 255, 0, 1); /* Яркий эффект свечения для фар */
+}
+
+.headlight.left {
+    left: 15px; /* Положение    left; /* Положение левой фары */
+}
+
+.headlight.right {
+    right: 15px; /* Положение правой фары */
+}
+
+
+
+.tail-light.left {
+    left: 20px; /* Положение левого заднего фонаря */
+}
+
+.tail-light.right {
+    right: 20px; /* Положение правого заднего фонаря */
+}
+
+.spoiler {
+    position: absolute;
+    width: 500px; /* Ширина спойлера */
+    height: 5px; /* Высота спойлера */
+    background: linear-gradient(135deg, #000000, #000000); /* Яркий градиент для спойлера */
+    border-radius: 5px; /* Закругленные углы спойлера */
+    top: 70px; /* Положение спойлера */
+    left: -100px; /* Центрируем спойлер */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Тень для спойлера */
+}
+
+
+
+
+@keyframes drive {
+    0% {
+        transform: translateX(-15px); /* Начальная позиция (вне экрана слева) */
+    }
+    100% {
+        transform: translateX(calc(100% - -2000px)); /* Конечная позиция (вне экрана справа) */
+    }
+}
+    </style>
+</body>
+</html>
