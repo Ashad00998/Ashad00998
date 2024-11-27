@@ -1,0 +1,44 @@
+let users = [
+    {id: 1, name: 'Alex', lastname: 'Wilyam', age: 20},
+    {id: 2, name: 'Steven', lastname: 'King', age: 34}
+];
+
+function addUser(name, lastname, age) {
+    const newUserId = users.length > 0 ? users[users.length - 1].id + 1 : 1;
+    users.push({ id: newUserId, name: name, lastname: lastname, age: age });
+    console.log(`Added user with id: ${newUserId}`);
+}
+
+function updateUser(id, name, lastname, age) {
+    const userIndex = users.findIndex(user => user.id === id);
+    if (userIndex !== -1) {
+        users[userIndex] = { id: id, name: name, lastname: lastname, age: age };
+        console.log(`Updated user with id: ${id}`);
+    } else {
+        console.log(`User with id ${id} not found.`);
+    }
+}
+
+function deleteUser(id) {
+    const initialLength = users.length;
+    users = users.filter(user => user.id !== id);
+    if (users.length < initialLength) {
+        console.log(`Deleted user with id: ${id}`);
+    } else {
+        console.log(`User with id ${id} not found.`);
+    }
+}
+
+// Demonstration of the functions
+console.log("Initial users array:", users);
+
+addUser('John', 'Doe', 28);
+console.log("After adding John Doe:", users);
+
+updateUser(1, 'Alexandra', 'Wilyam', 21);
+console.log("After updating user with id 1:", users);
+
+deleteUser(2);
+console.log("After deleting user with id 2:", users);
+
+deleteUser(5); // This should show that the user was not found
